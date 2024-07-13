@@ -222,11 +222,14 @@ document.getElementById("Submit").onclick=function(){
             else if(UserMolecule.slice(StartOfSlice,i)==Neptunium.Symbol){Adding=Neptunium.AtomMass;}
             else if(UserMolecule.slice(StartOfSlice,i)==Plutonium.Symbol){Adding=Plutonium.AtomMass;}
             else if(UserMolecule.slice(StartOfSlice,i)==Americium.Symbol){Adding=Americium.AtomMass;}
-            else{Adding=0; console.log("ERROR")}
+            else{Adding=0; console.log("ERROR"); ResultElement.textContent = "Error";}
             console.log(UserMolecule.slice(StartOfSlice,i));
             StartOfSlice=i;
             Mass+=Adding;
         }   
     }
-    console.log(Mass);
+    if(Adding>0){
+        ResultElement.textContent = Mass + " amu";
+        console.log(Mass);
+    }
 }
